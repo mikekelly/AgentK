@@ -1,0 +1,8 @@
+services:
+  agentk:
+    build: ./
+    volumes:
+      - "./:/app"
+    env_file:
+      - .env
+    profiles: ["exclude-from-up"] # Do not up. Use `docker compose run --rm agentk` to get an attached container
