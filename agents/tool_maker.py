@@ -95,8 +95,9 @@ def check_for_tool_calls(state: MessagesState) -> Literal["tools", END]:
     last_message = messages[-1]
     
     if last_message.tool_calls:
-        print("tool_maker thought this:")
-        print(last_message.content)
+        if not last_message.content.strip() == "":
+            print("tool_maker thought this:")
+            print(last_message.content)
         print()
         print("tool_maker is acting by invoking these tools:")
         print([tool_call["name"] for tool_call in last_message.tool_calls])

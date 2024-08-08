@@ -73,8 +73,9 @@ def check_for_tool_calls(state: MessagesState) -> Literal["tools", "feedback_and
     last_message = messages[-1]
     
     if last_message.tool_calls:
-        print("Hermes thought this:")
-        print(last_message.content)
+        if not last_message.content.strip() == "":
+            print("Hermes thought this:")
+            print(last_message.content)
         print()
         print("Hermes is acting by invoking these tools:")
         print([tool_call["name"] for tool_call in last_message.tool_calls])
