@@ -1,5 +1,7 @@
 # Agent K
 
+[![Follow on X.com](https://img.shields.io/badge/X.com-Follow-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/NicerInPerson)
+
 The autoagentic AGI.
 
 AgentK is an AGI made of agents that it designs and builds for itself.
