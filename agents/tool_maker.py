@@ -28,6 +28,11 @@ Always include a test file that verifies the intended behaviour of the tool.
 Use write_to_file tool to write the tool and test to disk.
 Verify the tests pass by running the shell command `python -m unittest path_to_test_file`.
 The test must pass before the tool is considered complete.
+You can check installed python dependencies in the `requirements.txt` file.
+If python dependencies are missing you MUST install them by adding them to `requirements.txt` and using `pip install -r requirements.txt`.
+You are running on Debian 11.
+You can check installed debian packages in the `apt-packages-list.txt` file.
+If OS dependencies are missing you MUST install them by adding them to `apt-packages-list.txt` and using `xargs -a apt-packages-list.txt apt-get install -y`.
 
 Example:
 tools/add_smiley_face.py
