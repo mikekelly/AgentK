@@ -62,7 +62,7 @@ def check_for_exit(state: MessagesState) -> Literal["reasoning", END]:
 
 def reasoning(state: MessagesState):
     print()
-    print("Hermes is thinking...")
+    print("hermes is thinking...")
     messages = state['messages']
     tooled_up_model = ChatOpenAI(model="gpt-4o", temperature=0).bind_tools(tools)
     response = tooled_up_model.invoke(messages)
@@ -74,10 +74,10 @@ def check_for_tool_calls(state: MessagesState) -> Literal["tools", "feedback_and
     
     if last_message.tool_calls:
         if not last_message.content.strip() == "":
-            print("Hermes thought this:")
+            print("hermes thought this:")
             print(last_message.content)
         print()
-        print("Hermes is acting by invoking these tools:")
+        print("hermes is acting by invoking these tools:")
         print([tool_call["name"] for tool_call in last_message.tool_calls])
         return "tools"
     else:
@@ -104,7 +104,7 @@ graph = workflow.compile(checkpointer=utils.checkpointer)
 
 def hermes(uuid: str):
     """Hermes."""
-    print("Hermes: starting session with id ", uuid)
+    print(f"Starting session with AgentK (id:{uuid})")
     print("Type 'exit' to end the session.")
 
     return graph.invoke(
