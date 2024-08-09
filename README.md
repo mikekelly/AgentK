@@ -2,11 +2,13 @@
 
 [![Join the Discord](https://img.shields.io/badge/Discord-Join%20our%20server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/TyW9gdA5) [![Follow on X.com](https://img.shields.io/badge/X.com-Follow-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/NicerInPerson)
 
-The autoagentic AGI.
+The autoagentic AGI. AgentK is an self-evolving AGI made of agents that collaborate, and build new agents as needed, in order to complete tasks for a user.
 
-AgentK is an AGI made of agents that collaborate, create new agents, and complete tasks.
+https://github.com/user-attachments/assets/ab36ebfd-7a9f-4f8b-a891-b8a1884a53a4
 
-It's a modular, self-evolving AGI system that gradually builds its own mind as you challenge it to complete tasks.
+Trace for above demo: https://smith.langchain.com/public/b0a0278c-f8b0-4912-966c-bd6c43954326/r
+
+Agent K is a modular, self-evolving AGI system that gradually builds its own mind as you challenge it to complete tasks.
 
 The "K" stands kernel, meaning small core. The aim is for AgentK to be the minimum set of agents and tools necessary for it to bootstrap itself and then grow its own mind.
 
