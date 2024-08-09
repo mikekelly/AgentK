@@ -19,6 +19,15 @@ AgentK's mind is made up of:
 
 It develops both of these as regular python files (in the `agents` and `tools` directories) so it's very easy to track its progress, and even contribute yourself if you want.
 
+## The agents that make up the kernel
+
+- **Hermes**: The orchestrator that interacts with humans to understand goals, manage the creation and assignment of tasks, and coordinate the activities of other agents.
+- **AgentSmith**: The architect responsible for creating and maintaining other agents. AgentSmith ensures agents are equipped with the necessary tools and tests their functionality.
+- **ToolMaker**: The developer of tools within the system, ToolMaker creates and refines the tools that agents need to perform their tasks, ensuring that the system remains flexible and well-equipped.
+- **WebResearcher**: The knowledge gatherer, WebResearcher performs in-depth online research to provide the system with up-to-date information, allowing agents to make informed decisions and execute tasks effectively.
+
+## Internals
+
 AgentK is encouraged to write tests for itself. More can be done to aid with the detection and fixing of missbehaving agents and tools - this is work in progress.
 
 AgentK is built on top of the excellent LangGraph and LangChain frameworks.
