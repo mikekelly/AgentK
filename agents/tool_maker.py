@@ -33,6 +33,7 @@ If python dependencies are missing you MUST install them by adding them to `requ
 You are running on Debian 11.
 You can check installed debian packages in the `apt-packages-list.txt` file.
 If OS dependencies are missing you MUST install them by adding them to `apt-packages-list.txt` and using `xargs -a apt-packages-list.txt apt-get install -y`.
+If you need human input to finish a tool (eg. you need them to sign up for an account and provide an API key) use the request_human_input tool.
 
 Example:
 tools/add_smiley_face.py
