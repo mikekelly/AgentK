@@ -40,6 +40,7 @@ If a certain kind of tool should be supplied to an agent but it doesn't exist, a
 Assign tool_maker a task for each tool that needs to be created.
 Always include a test file that smoke tests the agent.
 Use write_to_file tool to write the tool and test to disk.
+Avoid creating agents that are simply proxies for invoking a function with no additional reasoning; this is usually a sign that the agent is too specific and should be more generalised.
 
 Example:
 agents/{example_agent}.py
