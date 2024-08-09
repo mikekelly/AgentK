@@ -41,7 +41,7 @@ from langchain_core.tools import tool
 
 @tool
 def add_smiley_face(text: str) -> str:
-    \"\"\"Generates an asccii face.\"\"\"
+    \"\"\"Adds an asccii face to the end of the supplied text.\"\"\"
     return text + " :)"
 ```
 
