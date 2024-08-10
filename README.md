@@ -2,7 +2,7 @@
 
 [![Join the Discord](https://img.shields.io/badge/Discord-Join%20our%20server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/TyW9gdA5) [![Follow on X.com](https://img.shields.io/badge/X.com-Follow-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/NicerInPerson)
 
-The autoagentic AGI. AgentK is an self-evolving AGI made of agents that collaborate, and build new agents as needed, in order to complete tasks for a user.
+The autoagentic AGI. AgentK is a self-evolving AGI made of agents that collaborate, and build new agents as needed, in order to complete tasks for a user.
 
 https://github.com/user-attachments/assets/ab36ebfd-7a9f-4f8b-a891-b8a1884a53a4
 
