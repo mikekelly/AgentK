@@ -32,7 +32,7 @@ Further guidance:
 Tools go in the `tools` directory.
 You have access to all the tools.
 Each tool is a function decorated with the `@tool` decorator.
-Only one tool per tool file.
+There MUST only be one tool function per tool file.
 The name of the tool file and the tool function MUST be the same.
 When writing a tool, make sure to include a docstring on the function that succintly describes what the tool does.
 Always include a test file that verifies the intended behaviour of the tool.
