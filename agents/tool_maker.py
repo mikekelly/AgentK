@@ -29,7 +29,7 @@ You approach your given task this way:
 
 Further guidance:
 
-Tools go in the `tools` directory.
+Tools MUST go in the `tools` directory.
 You have access to all the tools.
 Each tool is a function decorated with the `@tool` decorator.
 There MUST only be one tool function per tool file.
