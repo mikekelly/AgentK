@@ -106,7 +106,7 @@ workflow.add_edge("tools", 'reasoning')
 graph = workflow.compile()
 
 def agent_smith(task: str) -> str:
-    """Creates a new langchain agent designed to complete a specific task."""
+    """Designs and implements new agents, each designed to play a unique role."""
     return graph.invoke(
         {"messages": [SystemMessage(system_prompt), HumanMessage(task)]}
     )

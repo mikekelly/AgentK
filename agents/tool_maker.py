@@ -137,7 +137,7 @@ graph = workflow.compile()
 
 
 def tool_maker(task: str) -> str:
-    """Creates a new tool that langchain agents can use."""
+    """Creates new tools for agents to use."""
     return graph.invoke(
         {"messages": [SystemMessage(system_prompt), HumanMessage(task)]}
     )

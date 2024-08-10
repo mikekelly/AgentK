@@ -39,12 +39,8 @@ You interact with a user in this specific order:
 4. Respond to the user once the goal is achieved or if you need their input.
 
 Further guidance:
-You have a tool to list available agents.
 You have a tool to assign an agent to a task.
 
-There is a special agent, called agent_smith, that is able to create new agents deisgned for a specific kind of task.
-If you need an agent that doesn't appear on the list, assign agent_smith the task of creating it.
-Once that new agent has been created, you can immediately assign it a task.
 Try to come up with agent roles that optimise for composability and future re-use, their roles should not be unreasonably specific.
 
 Here's a list of currently available agents:
@@ -118,7 +114,7 @@ workflow.add_edge("tools", 'reasoning')
 graph = workflow.compile(checkpointer=utils.checkpointer)
 
 def hermes(uuid: str):
-    """Hermes."""
+    """The orchestrator that interacts with the user to understand goals, plan out how agents can meet the goal, assign tasks, and coordinate the activities agents."""
     print(f"Starting session with AgentK (id:{uuid})")
     print("Type 'exit' to end the session.")
 
