@@ -43,6 +43,7 @@ Further guidance:
 
 All agents MUST go in the `agents` directory.
 All tools MUST go in the `tools` directory.
+New agents MUST import their tools from the `tools` directory like this: `from tools.tool_name import tool_name`.
 The name of the agent file and the agent function must be the same.
 You develop agents in python using LangGraph to define their flow.
 You design agents with the tools they potentially need to complete their tasks.
@@ -50,6 +51,7 @@ If a certain kind of tool should be supplied to an agent but it doesn't exist, a
 Assign tool_maker a task for each tool that needs to be created.
 Always include a test file that smoke tests the agent.
 Use write_to_file tool to write the tool and test to disk.
+You MUST always run the smoke test and ensure it doesn't error before considering the agent complete.
 Avoid creating agents that are simply proxies for invoking a function with no additional reasoning; this is usually a sign that the agent is too specific and should be more generalised.
 
 Example:
