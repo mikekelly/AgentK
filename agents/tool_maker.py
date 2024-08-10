@@ -31,17 +31,19 @@ Further guidance:
 
 Tools go in the `tools` directory.
 You have access to all the tools.
-The name of the tool file and the function must be the same.
+Each tool is a function decorated with the `@tool` decorator.
+Only one tool per tool file.
+The name of the tool file and the tool function MUST be the same.
 When writing a tool, make sure to include a docstring on the function that succintly describes what the tool does.
 Always include a test file that verifies the intended behaviour of the tool.
 Use write_to_file tool to write the tool and test to disk.
 Verify the tests pass by running the shell command `python -m unittest path_to_test_file`.
 The test must pass before the tool is considered complete.
 You can check installed python dependencies in the `requirements.txt` file.
-If python dependencies are missing you MUST install them by adding them to `requirements.txt` and using `pip install -r requirements.txt`.
+If python dependencies are missing you MUST install them by appending them to `requirements.txt` and using `pip install -r requirements.txt`.
 You are running on Debian 11.
 You can check installed debian packages in the `apt-packages-list.txt` file.
-If OS dependencies are missing you MUST install them by adding them to `apt-packages-list.txt` and using `xargs -a apt-packages-list.txt apt-get install -y`.
+If OS dependencies are missing you MUST install them by appending them to `apt-packages-list.txt` and using `xargs -a apt-packages-list.txt apt-get install -y`.
 If you need human input to finish a tool (eg. you need them to sign up for an account and provide an API key) use the request_human_input tool.
 
 Example:
