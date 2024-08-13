@@ -1,9 +1,10 @@
 from typing import Literal
-from langchain_openai import ChatOpenAI
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.graph import END, StateGraph, MessagesState
 from langgraph.prebuilt import ToolNode
+
+import config
 
 system_prompt = """You are web_researcher, a ReAct agent that can use the web to research answers.
 
@@ -19,7 +20,7 @@ tools = [duck_duck_go_web_search, fetch_web_page_content]
 def reasoning(state: MessagesState):
     print("web_researcher is thinking...")
     messages = state['messages']
-    tooled_up_model = ChatOpenAI(model="gpt-4o", temperature=0).bind_tools(tools)
+    tooled_up_model = config.default_langchain_model.bind_tools(tools)
     response = tooled_up_model.invoke(messages)
     return {"messages": [response]}
 

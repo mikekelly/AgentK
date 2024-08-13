@@ -1,12 +1,12 @@
-import sys
 from typing import Literal
-from langchain_openai import ChatOpenAI
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.graph import StateGraph, MessagesState, END
 from langgraph.prebuilt import ToolNode
 
 import utils
+import config
+
 from tools.list_available_agents import list_available_agents
 from tools.assign_agent_to_task import assign_agent_to_task
 
@@ -71,7 +71,7 @@ def reasoning(state: MessagesState):
     print()
     print("hermes is thinking...")
     messages = state['messages']
-    tooled_up_model = ChatOpenAI(model="gpt-4o", temperature=0).bind_tools(tools)
+    tooled_up_model = config.default_langchain_model.bind_tools(tools)
     response = tooled_up_model.invoke(messages)
     return {"messages": [response]}
 

@@ -1,11 +1,11 @@
 from typing import Literal
-from langchain_openai import ChatOpenAI
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.graph import END, StateGraph, MessagesState
 from langgraph.prebuilt import ToolNode
 
 import utils
+import config
 
 system_prompt = """You are tool_maker, a ReAct agent that develops LangChain tools for other agents.
 
@@ -103,7 +103,7 @@ def reasoning(state: MessagesState):
     print()
     print("tool_maker is thinking...")
     messages = state['messages']
-    tooled_up_model = ChatOpenAI(model="gpt-4o", temperature=0).bind_tools(tools)
+    tooled_up_model = config.default_langchain_model.bind_tools(tools)
     response = tooled_up_model.invoke(messages)
     return {"messages": [response]}
 
