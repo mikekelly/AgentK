@@ -3,6 +3,7 @@ import importlib.util
 import sys
 import string
 import secrets
+import traceback
 
 from langgraph.checkpoint.sqlite import SqliteSaver
 
@@ -14,12 +15,29 @@ def all_tool_functions():
     tool_funcs = []
     
     for tool in tools:
-        # TODO: rescue error from this, raise warning some how
-        module = load_module(f"tools/{tool}.py")
-        tool_func = getattr(module, tool)
-        tool_funcs.append(tool_func)
+        try:
+            module = load_module(f"tools/{tool}.py")
+            tool_func = getattr(module, tool)
+            tool_funcs.append(tool_func)
+        except Exception as e:
+            print(f"WARN: Could not load tool \"{tool}\". {e.__class__.__name__}: {e}")
     
-    return tool_funcs   
+    return tool_funcs
+
+def list_broken_tools():
+    tools = list_tools()
+    broken_tools = {}
+    
+    for tool in tools:
+        try:
+            module = load_module(f"tools/{tool}.py")
+            getattr(module, tool)
+            del sys.modules[module.__name__]
+        except Exception as e:
+            exception_trace = traceback.format_exc()
+            broken_tools[tool] = [e, exception_trace]
+    
+    return broken_tools
 
 def list_tools():
     """
@@ -41,13 +59,30 @@ def all_agents(exclude=["hermes"]):
     agent_funcs = {}
     
     for agent in agents:
-        # TODO: rescue error from this, raise warning some how
-        module = load_module(f"agents/{agent}.py")
-        agent_func = getattr(module, agent)
-        agent_funcs[agent] = agent_func.__doc__
-        del sys.modules[module.__name__]
+        try:
+            module = load_module(f"agents/{agent}.py")
+            agent_func = getattr(module, agent)
+            agent_funcs[agent] = agent_func.__doc__
+            del sys.modules[module.__name__]
+        except Exception as e:
+            print(f"WARN: Could not load agent \"{agent}\". {e.__class__.__name__}: {e}")
     
     return agent_funcs
+
+def list_broken_agents():
+    agents = list_agents()
+    broken_agents = {}
+    
+    for agent in agents:
+        try:
+            module = load_module(f"agents/{agent}.py")
+            getattr(module, agent)
+            del sys.modules[module.__name__]
+        except Exception as e:
+            exception_trace = traceback.format_exc()
+            broken_agents[agent] = [e, exception_trace]
+    
+    return broken_agents
 
 def list_agents():
     """
