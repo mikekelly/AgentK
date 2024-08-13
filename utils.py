@@ -14,6 +14,7 @@ def all_tool_functions():
     tool_funcs = []
     
     for tool in tools:
+        # TODO: rescue error from this, raise warning some how
         module = load_module(f"tools/{tool}.py")
         tool_func = getattr(module, tool)
         tool_funcs.append(tool_func)
@@ -40,6 +41,7 @@ def all_agents(exclude=["hermes"]):
     agent_funcs = {}
     
     for agent in agents:
+        # TODO: rescue error from this, raise warning some how
         module = load_module(f"agents/{agent}.py")
         agent_func = getattr(module, agent)
         agent_funcs[agent] = agent_func.__doc__
