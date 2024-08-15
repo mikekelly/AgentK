@@ -11,3 +11,12 @@ match default_model_provider:
         default_langchain_model = ChatOpenAI(model_name=default_model_name, temperature=default_model_temperature)
     case "ANTHROPIC":
         default_langchain_model = ChatAnthropic(model_name=default_model_name, temperature=default_model_temperature)
+    case "OLLAMA":
+        default_langchain_model = ChatOpenAI(
+            model_name=default_model_name,
+            temperature=default_model_temperature,
+            openai_api_key="ollama",  # This can be any non-empty string
+            openai_api_base="http://IPADDRESS:11434/v1",
+        )
+    case _:
+        raise ValueError(f"Unsupported model provider: {default_model_provider}")
