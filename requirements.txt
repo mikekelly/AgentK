@@ -7,3 +7,4 @@ langgraph-checkpoint-sqlite
 selenium
 unstructured
 duckduckgo-search
+python-dotenv
