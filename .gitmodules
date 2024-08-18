@@ -1,0 +1,3 @@
+[submodule "agents/langgraph-engineer"]
+	path = agents/langgraph-engineer
+	url = git@github.com:hwchase17/langgraph-engineer.git
