@@ -6,6 +6,7 @@ ENV PATH /root/.cargo/bin:$PATH
 
 WORKDIR /tmp
 COPY apt-packages-list.txt /tmp/apt-packages-list.txt
+RUN sed -i 's/\r$//' apt-packages-list.txt
 RUN xargs -a apt-packages-list.txt apt-get install -y
 
 COPY requirements.txt /tmp/requirements.txt
