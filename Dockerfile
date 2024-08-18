@@ -1,6 +1,8 @@
 FROM python:3-bullseye
 
 RUN apt-get -y update
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH /root/.cargo/bin:$PATH
 
 WORKDIR /tmp
 COPY apt-packages-list.txt /tmp/apt-packages-list.txt
