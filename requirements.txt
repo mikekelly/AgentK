@@ -1,6 +1,6 @@
 langgraph==0.2.0
 langchain-community==0.2.11
-langgraph-checkpoint==1.0.1
+langgraph-checkpoint==1.0.4
 langchain-openai
 langchain-anthropic
 langgraph-checkpoint-sqlite
